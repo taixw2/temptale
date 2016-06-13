@@ -9,13 +9,11 @@
     var operator = /\+|-|\*|\/|=|!/;
     var notOpera = /[^\+-\/\*=!\s]/g;
     var perFix = /^cc-\w+/;
-    var myObj = {};
-    var forEach = function(arr,fn,context) {
 
+    var forEach = function(arr,fn,context) {
         if (arr.forEach) {
             arr.forEach(fn,context);
         }else{
-
             for (var i= 0,ilen = arr.length;i<ilen;i++) {
 
                 fn.call(context,arr[i],i);
@@ -57,10 +55,16 @@
             }
         })
     }
+
+    /**
+     * 执行表达式
+     * @param val
+     * @param obj
+     * @returns {*}
+     */
     function buildExpression(val,obj){
         var value;
         var statement = "value=";
-        var expFun = null;
         if (placeReg.test(val)) val = val.substring(2,val.indexOf("}}"));
         //判断值是否有运算符
         if (operator.test(val)) {

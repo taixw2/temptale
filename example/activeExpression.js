@@ -27,20 +27,20 @@ function activeExpresstion(text,obj){
         //if have Express
         if (operatorReg.test(m)) {
 
-m = m.replace(variableReg,function(varMatch) {
-    //如果是不是数字
-    //并且在对应的对象有这个属性
-    if (Number(varMatch) != Number(varMatch) && obj[varMatch]) {
-        if (typeof obj[varMatch] === "number") {
-            return obj[varMatch];
-        }else{
-            return "'" + obj[varMatch] + "'";
-        }
+            m = m.replace(variableReg,function(varMatch) {
+                //如果是不是数字
+                //并且在对应的对象有这个属性
+                if (Number(varMatch) != Number(varMatch) && obj[varMatch]) {
+                    if (typeof obj[varMatch] === "number") {
+                        return obj[varMatch];
+                    }else{
+                        return "'" + obj[varMatch] + "'";
+                    }
 
-    }else{
-        return varMatch;
-    }
-})
+                }else{
+                    return varMatch;
+                }
+            })
             eval("expressValue = " + m);
             return expressValue;
         }else {
