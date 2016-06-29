@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="each-directive.js"></script>
+</head>
+<body>
+    <div cc-each="arr">
+        我的名字叫{{name}},我今年{{text}}岁啦
+        <div cc-click="click">
+            {{body}}
+        </div>
+    </div>
+    <div cc-each="obj">
+        <br />
+        我的名字叫{{name}}
+    </div>
+    {{body}}
+    <div id="boy">{{body}}</div>
+    <div cc-if="bool">
+        123
+    </div>
+
+    <script>
+
+        function completed(){
+            template(document.documentElement,{
+                title:"标题",
+                body:"哈哈哈哈",
+                class:"body",
+                click:function(){
+                    alert("“哈哈哈");
+                },
+                bool : false,
+                arr : [{
+                    name : "占山",
+                    text : "1",
+                    body : "主题"
+                },{
+                    name : "历史",
+                    text : "2"
+                },{
+                    name : "小五",
+                    text : "3",
+                    body : "主题"
+                }],
+                obj : {
+                    "123456" : {
+                        name : "删"
+                    },
+                    "sdf" : {
+                        name : "删12"
+                    },
+                    "fdg" : {
+                        name : "删44"
+                    }
+                }
+            })
+            document.removeEventListener("DOMContenteLoaded",completed)
+        }
+        document.addEventListener("DOMContentLoaded",completed);
+
+    </script>
+
+</body>
+</html>
