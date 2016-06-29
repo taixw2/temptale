@@ -9,7 +9,7 @@
     var operator = /\+|-|\*|\/|=|!/;
     var notOpera = /[^\+-\/\*=!\s]/g;
     var perFix = /^cc-\w+/;
-    var originObj;      //把对象保存在全局
+    var originObj;      //把对象保存起来
 
     var forEach = function(arr,fn,context) {
         if (arr.forEach) {
