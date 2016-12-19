@@ -1,0 +1,28 @@
+{
+  "name": "template.js",
+  "version": "0.0.1",
+  "description": "一个使用javascript处理字符串的模版引擎",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taixw2/temptale.git"
+  },
+  "keywords": [
+    "iqqq"
+  ],
+  "author": "iqqq",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/taixw2/temptale/issues"
+  },
+  "homepage": "https://github.com/taixw2/temptale#readme",
+  "devDependencies": {
+    "webpack": "^1.14.0"
+  }
+}
