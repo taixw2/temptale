@@ -1,16 +1,19 @@
-import encodeString from "./encodeString";
+// import encodeString from "./encodeString";
 import formatString from "./formatString";
+
 
 
 export default function(str,data) {
 
-  str = encodeString(str);
+  str = formatString(str);
 
-  var fnBody = `
-    var temp = [];
-    return "${formatString(str,data)}"
-  `;
+  return str + "')";
 
-  return new Function(fnBody);
+  // var fnBody = `
+  //   var temp = [];
+  //   return "${formatString(str,data)}"
+  // `;
+  //
+  // return new Function(fnBody);
 
 }

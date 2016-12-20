@@ -21,6 +21,6 @@ var htmlText = doc.getElementById("slash").innerHTML;
 
 var tmp = compile(normal,{
   data : "你好"
-})();
+});
 
 console.log(tmp);

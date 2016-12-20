@@ -4,7 +4,8 @@ export const delimiter_right = /}}/g
 
 //用于匹配分隔符内所有内容
 // {{.*?}}
-export const delimiter = new RegExp(delimiter_left.source + "\("+ any.source +"\)" + delimiter_right.source,"g")
+// export const delimiter = new RegExp(delimiter_left.source + "\("+ any.source +"\)" + delimiter_right.source,"g")
+export const delimiter = /{{([\s\S]*?)}}/g
 
 /**
  * 匹配单双引号
@@ -40,4 +41,8 @@ export const exclude_delimiter = /((?:(?!{{)[\s\S])+)/g
  * 首先匹配分隔符（ {{.*?}} ）
  * 匹配不到则进行第二次匹配 ： exclude_delimiter
  */
-export const match_exclude_delimiter = new RegExp(delimiter_left.source + any.source + delimiter_right.source + "\|" + exclude_delimiter.source,"g");
+export const match_delimiter = new RegExp(delimiter.source + "\|" + exclude_delimiter.source,"g");
+
+export const directives = /[if|for]/g;
+export const directives_if = /^(if\(.*\))/g
+export const directives_for = /^for\((.*)\)/g
