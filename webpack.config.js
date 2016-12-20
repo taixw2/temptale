@@ -1,29 +1,23 @@
 var webpack = require('webpack');
+var path = require("path");
 
 module.exports = {
     //页面入口文件配置
-    entry: {
-        index : './src/index.js'
-    },
+    entry: './src/index.js',
     //入口文件输出配置
+    //注意publicPath配置，否则webpack-dev-server无法引入dist/build.js
     output: {
-        path: 'dist/',
-        filename: '[name].js'
+        path: path.resolve(__dirname, './dist'),
+        publicPath : "dist/",
+        filename: 'build.js'
     },
     module: {
         //加载器配置
-        loaders: [
-            { test: /\.js$/, loader: 'jsx-loader?harmony' },
-        ]
-    },
-    //其它解决方案配置
-    // resolve: {
-    //     root: 'E:/github/flux-example/src', //绝对路径
-    //     extensions: ['', '.js', '.json', '.scss'],
-    //     alias: {
-    //         AppStore : 'js/stores/AppStores.js',
-    //         ActionType : 'js/actions/ActionType.js',
-    //         AppAction : 'js/actions/AppAction.js'
-    //     }
-    // }
+        loaders: [{   //注意loaders 否则babel-loader无法执行
+            test: /\.js$/,
+            loader: 'babel-loader',
+            exclude: /node_modules/,
+            query:{presets: ['es2015']}
+        }]
+    }
 };
