@@ -4,7 +4,7 @@ export const delimiter_right = /}}/g
 
 //用于匹配分隔符内所有内容
 // {{.*?}}
-export const delimiter = new RegExp(delimiter_left + "\("+ any +"\)" + delimiter_right,"g")
+export const delimiter = new RegExp(delimiter_left.source + "\("+ any.source +"\)" + delimiter_right.source,"g")
 
 /**
  * 匹配单双引号

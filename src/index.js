@@ -14,11 +14,13 @@ a == b
 }}</div>
   `
 
-var normal = "<div\>\{{}}</div>"
+var normal = "<div\>\{{data}}</div>"
 
 var doc = document;
 var htmlText = doc.getElementById("slash").innerHTML;
 
-var tmp = compile(normal)();
+var tmp = compile(normal,{
+  data : "你好"
+})();
 
 console.log(tmp);
