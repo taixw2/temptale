@@ -1,5 +1,5 @@
 
-export const trim = funtion(str) {
+export function trim(str) {
   if (typeof str === "funtion") {
       str = str();
   }

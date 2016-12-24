@@ -1,4 +1,7 @@
-import compile from"./compile.js";
+import compile from"./compile";
+// import filters from"./filtersParse";
+
+// filters("a|b a | c | ad")
 
 /**
  * 目前需要支持这种写法
@@ -14,13 +17,15 @@ a == b
 }}</div>
   `
 
-var normal = "<div\>\{{data}}</div>"
+var normal = "<div\\>\\{{data|addArgs b d e f|addArgs 0 1 2}}</div>"
 
 var doc = document;
-var htmlText = doc.getElementById("slash").innerHTML;
-
-var tmp = compile(normal,{
-  data : "你好"
+var slash = doc.getElementById("slash");
+var htmlText = slash.innerHTML;
+var tmp = compile(htmlText,{
+  data : "你好---2"
 });
+
+slash.innerHTML = tmp;
 
 console.log(tmp);

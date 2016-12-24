@@ -43,6 +43,10 @@ export const exclude_delimiter = /((?:(?!{{)[\s\S])+)/g
  */
 export const match_delimiter = new RegExp(delimiter.source + "\|" + exclude_delimiter.source,"g");
 
-export const directives = /[if|for]/g;
-export const directives_if = /^(if\(.*\))/g
-export const directives_for = /^for\((.*)\)/g
+
+//指令替换
+export const directives = /for|each|if/g;
+export const directives_close = /\/for|\/each|\/if/g;
+export const directives_if = /^(if\([\s\S]*\))/g
+export const directives_for = /^for\(([\s\S]*)\)/g
+export const directives_each = /^each\(([\s\S]*)\)/g
